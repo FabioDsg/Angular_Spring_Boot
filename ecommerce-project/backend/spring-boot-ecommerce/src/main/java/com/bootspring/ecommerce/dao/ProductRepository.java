@@ -12,5 +12,8 @@ import com.bootspring.ecommerce.entity.Product;
 public interface ProductRepository extends JpaRepository<Product, Long> {
 	
 	Page <Product> findByCategoryId(@RequestParam("id") Long id, Pageable pageable);
+	
+	// Search by name
+	Page <Product> findByNameContaining(@RequestParam("name") String name, Pageable pageable);
 
 }
