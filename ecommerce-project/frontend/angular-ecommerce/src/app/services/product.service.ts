@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { HttpClient } from "@Angular/common/http";
 import { Observable } from 'rxjs';
 import { Product } from '../common/product';
@@ -17,6 +16,14 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getProduct(theProductId: number): Observable<Product> {
+
+    // Need to build URL based on product id
+    const productUrl = `${this.baseUrl}/${theProductId}`;
+
+    return this.httpClient.get<Product>(productUrl);
+  }
+
   getProductList(theCategoryId: number): Observable<Product[]> {
 
     // Need to build URL based on category id
@@ -27,7 +34,7 @@ export class ProductService {
 
   searchProducts(theKeyword: string): Observable<Product[]> {
     
-    // need to build URL based on the keyword 
+    // Need to build URL based on the keyword 
     const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}`;
 
     return this.getProducts(searchUrl);
