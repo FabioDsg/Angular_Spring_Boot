@@ -56,7 +56,7 @@ return this.httpClient.get<GetResponseProducts>(searchUrl);
                          thePageSize: number, 
                          theKeyword:string): Observable<GetResponseProducts> {
 
-// need to build URL based on keyword, page and size 
+// Need to build URL based on keyword, page and size 
 const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}`
                 + `&page=${thePage}&size=${thePageSize}`;
 
