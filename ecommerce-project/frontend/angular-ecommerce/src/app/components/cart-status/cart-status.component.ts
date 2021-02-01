@@ -29,5 +29,6 @@ export class CartStatusComponent implements OnInit {
       data => this.totalQuantity = data
     );
   }
+  
 
 }
